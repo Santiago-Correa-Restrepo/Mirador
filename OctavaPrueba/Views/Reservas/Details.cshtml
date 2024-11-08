@@ -1,0 +1,182 @@
+﻿@model OctavaPrueba.Models.Reserva
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* 
+<h1>Details</h1>
+
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaReserva)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaReserva)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaFinalizacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaFinalizacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubTotal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descuento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descuento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Iva)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Iva)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MontoTotal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MontoTotal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NroPersonas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NroPersonas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEstadoReserva)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdEstadoReservaNavigation.NombreEstadoReserva)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MetodoPago)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MetodoPagoNavigation.NomMetodoPago)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NroDocumentoCliente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NroDocumentoClienteNavigation.NroDocumento)
+        </dd>
+
+        <h3>Paquetes</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre del Paquete</th>
+                    <th>Descripción</th>
+                    <th>Habitación</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detalle in Model.DetalleReservaPaquetes)
+                {
+                    <tr>
+                        <td>@detalle.IdPaqueteNavigation.NomPaquete</td>
+                        <td>@detalle.IdPaqueteNavigation.Descripcion</td>
+                        <td>@detalle.IdPaqueteNavigation.IdHabitacion</td>
+                        <td>@detalle.IdPaqueteNavigation.Precio</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <h3>Servicios</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre del Servicio</th>
+                    <th>Descripción</th>
+                    <th>Costo</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detalle in Model.DetalleReservaServicios)
+                {
+                    <tr>
+                        <td>@detalle.IdServicioNavigation.NomServicio</td>
+                        <td>@detalle.IdServicioNavigation.Descripcion</td>
+                        <td>@detalle.IdServicioNavigation.Precio</td>
+                        <td>@detalle.Cantidad</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </dl>   
+</div> *@
+
+
+<h2>Detalles de la Reserva</h2>
+<p><strong>Cliente:</strong> @Model.NroDocumentoCliente</p>
+<p><strong>Estado:</strong> @Model.IdEstadoReservaNavigation.NombreEstadoReserva</p>
+<p><strong>Método de Pago:</strong> @Model.MetodoPagoNavigation.NomMetodoPago</p>
+<p><strong>Fecha de Reserva:</strong> @Model.FechaReserva.ToString("dd/MM/yyyy")</p>
+<p><strong>Monto Total:</strong> @Model.MontoTotal</p>
+
+<h3>Paquetes Asociados</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre Paquete</th>
+            <th>Costo</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var paquete in Model.DetalleReservaPaquetes)
+        {
+            <tr>
+                <td>@paquete.IdPaqueteNavigation.NomPaquete</td>
+                <td>@paquete.IdPaqueteNavigation.Precio</td>
+                <td>@paquete.IdPaqueteNavigation.Descripcion</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Servicios Asociados</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre Servicio</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var servicio in Model.DetalleReservaServicios)
+        {
+            <tr>
+                <td>@servicio.IdServicioNavigation.NomServicio</td>
+                <td>@servicio.IdServicioNavigation.Precio</td>
+                <td>@servicio.IdServicioNavigation.Descripcion</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdReserva">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

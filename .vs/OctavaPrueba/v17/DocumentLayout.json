@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|c:\\users\\2926c\\source\\repos\\octavaprueba\\octavaprueba\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|solutionrelative:octavaprueba\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|c:\\users\\2926c\\source\\repos\\octavaprueba\\octavaprueba\\models\\viewmodels\\crearreservavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|solutionrelative:octavaprueba\\models\\viewmodels\\crearreservavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|c:\\users\\2926c\\source\\repos\\octavaprueba\\octavaprueba\\models\\viewmodels\\estadoreservavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|solutionrelative:octavaprueba\\models\\viewmodels\\estadoreservavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|c:\\users\\2926c\\source\\repos\\octavaprueba\\octavaprueba\\views\\reservas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|solutionrelative:octavaprueba\\views\\reservas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|c:\\users\\2926c\\source\\repos\\octavaprueba\\octavaprueba\\models\\viewmodels\\detallereservavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|solutionrelative:octavaprueba\\models\\viewmodels\\detallereservavm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|c:\\users\\2926c\\source\\repos\\octavaprueba\\octavaprueba\\models\\estadosreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|solutionrelative:octavaprueba\\models\\estadosreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|c:\\users\\2926c\\source\\repos\\octavaprueba\\octavaprueba\\views\\reservas\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{833368BD-87CF-47A0-BF3F-477F306BC36B}|OctavaPrueba\\OctavaPrueba.csproj|solutionrelative:octavaprueba\\views\\reservas\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Views\\Reservas\\Delete.cshtml",
+              "RelativeDocumentMoniker": "OctavaPrueba\\Views\\Reservas\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Views\\Reservas\\Delete.cshtml",
+              "RelativeToolTip": "OctavaPrueba\\Views\\Reservas\\Delete.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFwAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T18:16:28.882Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CrearReservaVM.cs",
+              "DocumentMoniker": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\ViewModels\\CrearReservaVM.cs",
+              "RelativeDocumentMoniker": "OctavaPrueba\\Models\\ViewModels\\CrearReservaVM.cs",
+              "ToolTip": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\ViewModels\\CrearReservaVM.cs",
+              "RelativeToolTip": "OctavaPrueba\\Models\\ViewModels\\CrearReservaVM.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T19:45:24.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DetalleReservaVM.cs",
+              "DocumentMoniker": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\ViewModels\\DetalleReservaVM.cs",
+              "RelativeDocumentMoniker": "OctavaPrueba\\Models\\ViewModels\\DetalleReservaVM.cs",
+              "ToolTip": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\ViewModels\\DetalleReservaVM.cs",
+              "RelativeToolTip": "OctavaPrueba\\Models\\ViewModels\\DetalleReservaVM.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T19:42:26.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EstadosReserva.cs",
+              "DocumentMoniker": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\EstadosReserva.cs",
+              "RelativeDocumentMoniker": "OctavaPrueba\\Models\\EstadosReserva.cs",
+              "ToolTip": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\EstadosReserva.cs",
+              "RelativeToolTip": "OctavaPrueba\\Models\\EstadosReserva.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T18:56:30.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EstadoReservaVM.cs",
+              "DocumentMoniker": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\ViewModels\\EstadoReservaVM.cs",
+              "RelativeDocumentMoniker": "OctavaPrueba\\Models\\ViewModels\\EstadoReservaVM.cs",
+              "ToolTip": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Models\\ViewModels\\EstadoReservaVM.cs",
+              "RelativeToolTip": "OctavaPrueba\\Models\\ViewModels\\EstadoReservaVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T18:55:34.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Views\\Reservas\\Index.cshtml",
+              "RelativeDocumentMoniker": "OctavaPrueba\\Views\\Reservas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Views\\Reservas\\Index.cshtml",
+              "RelativeToolTip": "OctavaPrueba\\Views\\Reservas\\Index.cshtml",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAQwIUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T18:16:43.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "OctavaPrueba\\Controllers\\ReservasController.cs",
+              "ToolTip": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "OctavaPrueba\\Controllers\\ReservasController.cs",
+              "ViewState": "AgIAABQBAAAAAAAAAAAQwCQBAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T16:31:03.234Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

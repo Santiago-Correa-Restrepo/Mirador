@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OctavaPrueba", "OctavaPrueba\OctavaPrueba.csproj", "{833368BD-87CF-47A0-BF3F-477F306BC36B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D1E4AB0B-2814-465F-BFCA-5641D5EC09EA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{833368BD-87CF-47A0-BF3F-477F306BC36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{833368BD-87CF-47A0-BF3F-477F306BC36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{833368BD-87CF-47A0-BF3F-477F306BC36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{833368BD-87CF-47A0-BF3F-477F306BC36B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0B019FE-6005-400E-A98C-69179B92E722}
+	EndGlobalSection
+EndGlobal

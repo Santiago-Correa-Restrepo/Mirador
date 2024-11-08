@@ -1,0 +1,314 @@
+﻿@model OctavaPrueba.Models.ViewModels.CrearReservaVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Create</h1>
+
+<h4>Reserva</h4>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div>
+                <label for="NroDocumento">Número de Documento</label>
+                <input type="text" id="NroDocumento" name="NroDocumento" class="form-control" />
+
+                <!-- Campo oculto para almacenar el NroDocumento del cliente -->
+                <input type="hidden" id="NroDocumentoCliente" name="NroDocumentoCliente" />
+
+                <div id="clienteInfo" style="margin-top: 15px;">
+                    <!-- Aquí se mostrará la información del cliente si se encuentra -->
+                </div>
+            </div>
+
+                
+            
+            @* <div>
+                <label for="NroDocumento">Número de Documento</label>
+                <input type="text" id="NroDocumento" name="NroDocumento" class="form-control" />
+
+                <div id="clienteInfo" style="margin-top: 15px;">
+                    <!-- Aquí se mostrará la información del cliente si se encuentra -->
+                </div>
+            </div> *@
+
+            @* ------------------------------------ paquetes ------------------------------------*@
+        <div class="mb-3">
+            <label for="select-paquete" class="form-label">Seleccionar Paquete</label>
+            <select id="select-paquete" class="form-control">
+                @foreach (var paquete in Model.PaquetesDisponibles)
+                {
+                    <option value="@paquete.IdPaquete" data-precio="@paquete.Precio" data-descripcion="@paquete.Descripcion" data-habitacion="@paquete.Habitacion">
+                        @paquete.Nombre
+                    </option>
+                }
+            </select>
+        </div>
+
+        <button id="btn-agregar-paquete" type="button" class="btn btn-primary">Agregar Paquete</button>
+
+        <table id="paquetes-seleccionados" class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        
+
+            @* -------------------------- SERVICIOS -------------------------------------------*@
+
+        <div class="mb-3">
+            <label for="select-servicio" class="form-label">Seleccionar Servicio</label>
+            <select id="select-servicio" class="form-control">
+                @foreach (var servicio in Model.ServiciosDisponibles)
+                {
+                    <option value="@servicio.IdServicio" data-precio="@servicio.Precio">@servicio.Nombre</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="cantidad-servicio" class="form-label">Cantidad</label>
+            <input type="number" id="cantidad-servicio" class="form-control" min="1" value="1" />
+        </div>
+
+        <button id="btn-agregar-servicio" type="button" class="btn btn-primary">Agregar Servicio</button>
+
+        <table id="servicios-seleccionados" class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+           
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="control-label"></label>
+                <input asp-for="FechaInicio" class="form-control" />
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFinalizacion" class="control-label"></label>
+                <input asp-for="FechaFinalizacion" class="form-control" />
+                <span asp-validation-for="FechaFinalizacion" class="text-danger"></span>
+            </div>
+            <div>
+                <label>Subtotal:</label>
+                <span id="subtotal">0.00</span>
+            </div>
+            <div>
+                <label>Descuento (%):</label>
+                <input type="number" id="descuento" min="0" max="100" value="0">
+            </div>
+            <div>
+                <label>IVA (19%):</label>
+                <span id="iva">0.00</span>
+            </div>
+            <div>
+                <label>Monto Total:</label>
+                <span id="montototal">0.00</span>
+            </div>
+            <div class="form-group">
+                <label for="FechaReserva">Fecha de Reserva</label>
+                <input asp-for="FechaReserva" class="form-control" readonly /> <!-- Campo de solo lectura -->
+            </div>
+        <div class="mb-3">
+            <label for="metodo-pago" class="form-label">Método de Pago</label>
+            <select id="metodo-pago" class="form-control" asp-for="MetodoPago">
+                <option value="">Seleccione un método de pago</option>
+                @foreach (var metodo in Model.MetodosPago)
+                {
+                    <option value="@metodo.IdMetodoPago">@metodo.NombrePago</option>
+                }
+            </select>
+        </div> 
+            <div class="form-group">
+                <label asp-for="NroPersonas" class="control-label"></label>
+                <input asp-for="NroPersonas" class="form-control" />
+                <span asp-validation-for="NroPersonas" class="text-danger"></span>
+            </div>
+         <div class="mb-3">
+            <label for="estado-reserva" class="form-label">Estado de Reserva</label>
+            <select id="estado-reserva" class="form-control" asp-for="IdEstadoReserva">
+                <option value="">Seleccione un estado</option>
+                @foreach (var estado in Model.EstadosReserva)
+                {
+                    <option value="@estado.IdEstado">@estado.NombreEstado</option>
+                }
+            </select>
+         </div> 
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+    
+
+
+@section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#NroDocumento').on('input', function () {
+                var numeroDocumento = $(this).val().trim();
+
+                if (numeroDocumento.length > 0) {
+                    $.ajax({
+                        url: '@Url.Action("BuscarCliente", "Reservas")',
+                        type: 'GET',
+                        data: { nroDocumento: numeroDocumento },
+                        success: function (data) {
+                            if (data.error) {
+                                $('#clienteInfo').html('<p style="color:red;">' + data.error + '</p>');
+                                $('#NroDocumentoCliente').val(''); // Limpia el campo oculto si no se encuentra el cliente
+                            } else {
+                                $('#clienteInfo').html(
+                                    '<h4>Información del Cliente</h4>' +
+                                    '<p><strong>Nombre:</strong> ' + data.nombre + '</p>' +
+                                    '<p><strong>Apellido:</strong> ' + data.apellido + '</p>' +
+                                    '<p><strong>Correo:</strong> ' + data.correo + '</p>' +
+                                    '<p><strong>Celular:</strong> ' + data.celular + '</p>' +
+                                    '<p><strong>Tipo de Documento:</strong> ' + data.tipoDocumento + '</p>'
+                                );
+                                $('#NroDocumentoCliente').val(data.nroDocumento); // Asigna el NroDocumento al campo oculto
+                            }
+                        },
+                        error: function () {
+                            $('#clienteInfo').html('<p style="color:red;">Error al buscar el cliente. Intente de nuevo.</p>');
+                        }
+                    });
+                } else {
+                    $('#clienteInfo').empty(); // Limpia la información si no hay documento
+                    $('#NroDocumentoCliente').val(''); // Limpia el campo oculto si no hay documento
+                }
+            });
+        });
+    </script>
+
+    <script>
+
+       
+
+        // Variable global para almacenar el subtotal acumulado
+        let subtotal = 0;
+
+        // Función para agregar servicios
+        document.getElementById('btn-agregar-servicio').addEventListener('click', function () {
+            var selectServicio = document.getElementById('select-servicio');
+            var idServicio = selectServicio.value;
+            var nombreServicio = selectServicio.options[selectServicio.selectedIndex].text;
+            var precioServicio = parseFloat(selectServicio.options[selectServicio.selectedIndex].getAttribute('data-precio'));
+            var cantidadServicio = parseInt(document.getElementById('cantidad-servicio').value);
+
+            if (!idServicio || cantidadServicio < 1) {
+                alert("Selecciona un servicio y asegúrate de que la cantidad sea válida.");
+                return;
+            }
+
+            var totalServicio = precioServicio * cantidadServicio;
+            agregarItemTabla('servicios-seleccionados', idServicio, nombreServicio, precioServicio, cantidadServicio, totalServicio);
+            actualizarTotales(totalServicio);
+        });
+
+        // Función para agregar paquetes
+        document.getElementById('btn-agregar-paquete').addEventListener('click', function () {
+            var selectPaquete = document.getElementById('select-paquete');
+            var idPaquete = selectPaquete.value;
+            var nombrePaquete = selectPaquete.options[selectPaquete.selectedIndex].text;
+            var precioPaquete = parseFloat(selectPaquete.options[selectPaquete.selectedIndex].getAttribute('data-precio'));
+
+            if (!idPaquete) {
+                alert("Selecciona un paquete válido.");
+                return;
+            }
+
+            agregarItemTabla('paquetes-seleccionados', idPaquete, nombrePaquete, precioPaquete, 1, precioPaquete);
+            actualizarTotales(precioPaquete);
+        });
+
+        // Función para agregar un servicio o paquete a la tabla
+        function agregarItemTabla(tablaId, idItem, nombre, precio, cantidad, total) {
+            var tableBody = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
+            var row = tableBody.insertRow();
+            row.setAttribute('data-id', idItem);
+
+            row.innerHTML = `
+                    <td>${nombre}</td>
+                    <td>${precio.toFixed(2)}</td>
+                    <td>${cantidad}</td>
+                    <td>${total.toFixed(2)}</td>
+                    <td><button type="button" class="btn btn-danger btn-sm eliminar-item">Eliminar</button></td>
+                `;
+
+            row.querySelector('.eliminar-item').addEventListener('click', function () {
+                var totalEliminar = parseFloat(row.cells[3].innerText);
+                actualizarTotales(-totalEliminar);
+                row.remove();
+            });
+        }
+
+        // Actualiza el subtotal y llama a calcularMontototal
+        function actualizarTotales(monto) {
+            subtotal += monto;
+            calcularMontototal();
+        }
+
+        // Evento para aplicar el descuento en tiempo real
+        document.getElementById('descuento').addEventListener('input', function () {
+            calcularMontototal();
+        });
+
+        // Calcula el monto total con IVA y descuento aplicados
+        function calcularMontototal() {
+            var ivaPercentage = 0.19; // IVA del 19%
+            var descuentoPercentage = parseFloat(document.getElementById('descuento').value) || 0;
+
+            if (descuentoPercentage < 0 || descuentoPercentage > 100) {
+                alert("El descuento debe estar entre 0 y 100%");
+                return;
+            }
+
+            var iva = subtotal * ivaPercentage;
+            var montototalConIva = subtotal + iva;
+            var descuento = montototalConIva * (descuentoPercentage / 100);
+            var montototalFinal = montototalConIva - descuento;
+
+            // Actualizar los campos en la vista
+            document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+            document.getElementById('iva').innerText = iva.toFixed(2);
+            document.getElementById('montototal').innerText = montototalFinal.toFixed(2);
+            document.getElementById('descuento').innerText = descuento.toFixed(2); // Opcional
+        }
+    </script>
+
+
+}

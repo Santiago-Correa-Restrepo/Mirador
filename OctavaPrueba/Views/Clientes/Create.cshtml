@@ -1,0 +1,114 @@
+﻿@model OctavaPrueba.Models.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label for="NroDocumentoCliente" class="form-label">Número de Documento Cliente</label>
+                <input asp-for="NroDocumento" class="form-control" id="NroDocumentoCliente" required />
+                <div class="invalid-feedback">
+                    Por favor, ingrese el número de documento del cliente.
+                </div>
+            </div>
+
+            <div id="cliente-info"></div>
+
+           @*  <div class="form-group">
+                <label asp-for="NroDocumento" class="control-label"></label>
+                <input asp-for="NroDocumento" class="form-control" />
+                <span asp-validation-for="NroDocumento" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="IdTipoDocumento" class="control-label"></label>
+                <select asp-for="IdTipoDocumento" class ="form-control" asp-items="ViewBag.IdTipoDocumento"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombres" class="control-label"></label>
+                <input asp-for="Nombres" class="form-control" />
+                <span asp-validation-for="Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellidos" class="control-label"></label>
+                <input asp-for="Apellidos" class="form-control" />
+                <span asp-validation-for="Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Celular" class="control-label"></label>
+                <input asp-for="Celular" class="form-control" />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Correo" class="control-label"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contrasena" class="control-label"></label>
+                <input asp-for="Contrasena" class="form-control" />
+                <span asp-validation-for="Contrasena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdRol" class="control-label"></label>
+                <select asp-for="IdRol" class ="form-control" asp-items="ViewBag.IdRol"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<div asp-validation-summary="All" class="text-danger"></div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#NroDocumentoCliente').on('input', function () {
+                var nroDocumento = $(this).val();
+
+                // Verifica que el número de documento no esté vacío
+                if (nroDocumento.length > 0) {
+                    $.ajax({
+                        url: '@Url.Action("BuscarCliente", "Reservas")',
+                        data: { nroDocumento: nroDocumento },
+                        type: 'GET',
+                        success: function (response) {
+                            if (response.error) {
+                                $('#cliente-info').html('<p>Cliente no encontrado.</p>');
+                            } else {
+                                $('#cliente-info').html(
+                                    '<p>Nombre: ' + response.Nombre + '</p>' +
+                                    '<p>Apellido: ' + response.Apellido + '</p>' +
+                                    '<p>Correo: ' + response.Correo + '</p>' +
+                                    '<p>Celular: ' + response.Celular + '</p>' +
+                                    '<p>Tipo de Documento: ' + response.TipoDocumento + '</p>'
+                                );
+                            }
+                        },
+                        error: function () {
+                            $('#cliente-info').html('<p>Error al buscar el cliente.</p>');
+                        }
+                    });
+                } else {
+                    $('#cliente-info').empty();
+                }
+            });
+        });
+    </script>
+}
