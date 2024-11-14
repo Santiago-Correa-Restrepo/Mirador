@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\OctavaPrueba.csproj": {}
+    "/Users/nave1/Documents/Courses/Mirador/OctavaPrueba/OctavaPrueba.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\OctavaPrueba.csproj": {
+    "/Users/nave1/Documents/Courses/Mirador/OctavaPrueba/OctavaPrueba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\OctavaPrueba.csproj",
+        "projectUniqueName": "/Users/nave1/Documents/Courses/Mirador/OctavaPrueba/OctavaPrueba.csproj",
         "projectName": "OctavaPrueba",
-        "projectPath": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\OctavaPrueba.csproj",
-        "packagesPath": "C:\\Users\\2926c\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2926c\\source\\repos\\OctavaPrueba\\OctavaPrueba\\obj\\",
+        "projectPath": "/Users/nave1/Documents/Courses/Mirador/OctavaPrueba/OctavaPrueba.csproj",
+        "packagesPath": "/Users/nave1/.nuget/packages/",
+        "outputPath": "/Users/nave1/Documents/Courses/Mirador/OctavaPrueba/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\2926c\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/nave1/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

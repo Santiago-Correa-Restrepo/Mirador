@@ -19,7 +19,7 @@ public partial class Usuario
 
     public string? Contrasena { get; set; }
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public int? IdRol { get; set; }
 

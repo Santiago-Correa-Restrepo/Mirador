@@ -400,10 +400,6 @@ public partial class BdMiradorContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Reservas__NroDoc__0A9D95DB");
 
-            entity.HasOne(d => d.NroDocumentoUsuarioNavigation).WithMany(p => p.Reservas)
-                .HasForeignKey(d => d.NroDocumentoUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Reservas__NroDoc__0B91BA14");
         });
 
         modelBuilder.Entity<Role>(entity =>

@@ -11,7 +11,7 @@ public partial class TipoHabitacione
 
     public int? NumeroPersonas { get; set; }
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public virtual ICollection<Habitacione> Habitaciones { get; set; } = new List<Habitacione>();
 }

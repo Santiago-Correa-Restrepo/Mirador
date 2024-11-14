@@ -17,7 +17,7 @@ public partial class Habitacione
 
     public decimal Precio { get; set; }
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public virtual ICollection<HabitacionMueble> HabitacionMuebles { get; set; } = new List<HabitacionMueble>();
 

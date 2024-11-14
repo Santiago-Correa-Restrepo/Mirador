@@ -12,8 +12,8 @@ using OctavaPrueba.Models;
 namespace OctavaPrueba.Migrations
 {
     [DbContext(typeof(BdMiradorContext))]
-    [Migration("20241106014900_RemoveNroDocumentoClienteForeignKey")]
-    partial class RemoveNroDocumentoClienteForeignKey
+    [Migration("20241113044547_eliminarusuario")]
+    partial class eliminarusuario
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,7 @@ namespace OctavaPrueba.Migrations
                     b.Property<double>("CantAbono")
                         .HasColumnType("float");
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -100,7 +100,7 @@ namespace OctavaPrueba.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -128,61 +128,59 @@ namespace OctavaPrueba.Migrations
 
             modelBuilder.Entity("OctavaPrueba.Models.DetalleReservaPaquete", b =>
                 {
-                    b.Property<int>("DetalleReservaPaquete1")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("DetalleReservaPaquete");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DetalleReservaPaquete1"));
-
-                    b.Property<int>("Cantidad")
+                    b.Property<int>("IdReserva")
                         .HasColumnType("int");
 
                     b.Property<int>("IdPaquete")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdReserva")
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DetalleReservaPaquete1")
+                        .HasColumnType("int")
+                        .HasColumnName("DetalleReservaPaquete");
+
+                    b.Property<int?>("PaqueteIdPaquete")
                         .HasColumnType("int");
 
                     b.Property<double>("Precio")
                         .HasColumnType("float");
 
-                    b.HasKey("DetalleReservaPaquete1")
-                        .HasName("PK__DetalleR__2E8BFF25E66B2199");
+                    b.HasKey("IdReserva", "IdPaquete");
 
                     b.HasIndex("IdPaquete");
 
-                    b.HasIndex("IdReserva");
+                    b.HasIndex("PaqueteIdPaquete");
 
                     b.ToTable("DetalleReservaPaquete", (string)null);
                 });
 
             modelBuilder.Entity("OctavaPrueba.Models.DetalleReservaServicio", b =>
                 {
-                    b.Property<int>("IdDetalleReservaServicio")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDetalleReservaServicio"));
-
-                    b.Property<int>("Cantidad")
-                        .HasColumnType("int");
-
                     b.Property<int>("IdReserva")
                         .HasColumnType("int");
 
                     b.Property<int>("IdServicio")
                         .HasColumnType("int");
 
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdDetalleReservaServicio")
+                        .HasColumnType("int");
+
                     b.Property<double>("Precio")
                         .HasColumnType("float");
 
-                    b.HasKey("IdDetalleReservaServicio")
-                        .HasName("PK__DetalleR__D3D91A5A87D36E77");
+                    b.Property<int?>("ServicioIdServicio")
+                        .HasColumnType("int");
 
-                    b.HasIndex("IdReserva");
+                    b.HasKey("IdReserva", "IdServicio");
 
                     b.HasIndex("IdServicio");
+
+                    b.HasIndex("ServicioIdServicio");
 
                     b.ToTable("DetalleReservaServicio", (string)null);
                 });
@@ -246,7 +244,7 @@ namespace OctavaPrueba.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -415,7 +413,7 @@ namespace OctavaPrueba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMueble"));
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -455,7 +453,7 @@ namespace OctavaPrueba.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)");
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -589,14 +587,14 @@ namespace OctavaPrueba.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int>("NroDocumentoUsuario")
-                        .HasColumnType("int");
-
                     b.Property<int>("NroPersonas")
                         .HasColumnType("int");
 
                     b.Property<double>("SubTotal")
                         .HasColumnType("float");
+
+                    b.Property<int?>("UsuarioNroDocumento")
+                        .HasColumnType("int");
 
                     b.HasKey("IdReserva")
                         .HasName("PK__Reservas__0E49C69DAAB54F8D");
@@ -607,7 +605,7 @@ namespace OctavaPrueba.Migrations
 
                     b.HasIndex("NroDocumentoCliente");
 
-                    b.HasIndex("NroDocumentoUsuario");
+                    b.HasIndex("UsuarioNroDocumento");
 
                     b.ToTable("Reservas");
                 });
@@ -647,7 +645,7 @@ namespace OctavaPrueba.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -698,7 +696,7 @@ namespace OctavaPrueba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTipoHabitacion"));
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -761,7 +759,7 @@ namespace OctavaPrueba.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<bool>("Estado")
+                    b.Property<bool?>("Estado")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -817,7 +815,7 @@ namespace OctavaPrueba.Migrations
             modelBuilder.Entity("OctavaPrueba.Models.DetalleReservaPaquete", b =>
                 {
                     b.HasOne("OctavaPrueba.Models.Paquete", "IdPaqueteNavigation")
-                        .WithMany("DetalleReservaPaquetes")
+                        .WithMany()
                         .HasForeignKey("IdPaquete")
                         .IsRequired()
                         .HasConstraintName("FK__DetalleRe__IdPaq__14270015");
@@ -827,6 +825,10 @@ namespace OctavaPrueba.Migrations
                         .HasForeignKey("IdReserva")
                         .IsRequired()
                         .HasConstraintName("FK__DetalleRe__IdRes__151B244E");
+
+                    b.HasOne("OctavaPrueba.Models.Paquete", null)
+                        .WithMany("DetalleReservaPaquetes")
+                        .HasForeignKey("PaqueteIdPaquete");
 
                     b.Navigation("IdPaqueteNavigation");
 
@@ -842,10 +844,14 @@ namespace OctavaPrueba.Migrations
                         .HasConstraintName("FK__DetalleRe__IdRes__114A936A");
 
                     b.HasOne("OctavaPrueba.Models.Servicio", "IdServicioNavigation")
-                        .WithMany("DetalleReservaServicios")
+                        .WithMany()
                         .HasForeignKey("IdServicio")
                         .IsRequired()
                         .HasConstraintName("FK__DetalleRe__IdSer__10566F31");
+
+                    b.HasOne("OctavaPrueba.Models.Servicio", null)
+                        .WithMany("DetalleReservaServicios")
+                        .HasForeignKey("ServicioIdServicio");
 
                     b.Navigation("IdReservaNavigation");
 
@@ -1024,19 +1030,15 @@ namespace OctavaPrueba.Migrations
                         .HasForeignKey("NroDocumentoCliente")
                         .HasConstraintName("FK__Reservas__NroDoc__0A9D95DB");
 
-                    b.HasOne("OctavaPrueba.Models.Usuario", "NroDocumentoUsuarioNavigation")
+                    b.HasOne("OctavaPrueba.Models.Usuario", null)
                         .WithMany("Reservas")
-                        .HasForeignKey("NroDocumentoUsuario")
-                        .IsRequired()
-                        .HasConstraintName("FK__Reservas__NroDoc__0B91BA14");
+                        .HasForeignKey("UsuarioNroDocumento");
 
                     b.Navigation("IdEstadoReservaNavigation");
 
                     b.Navigation("MetodoPagoNavigation");
 
                     b.Navigation("NroDocumentoClienteNavigation");
-
-                    b.Navigation("NroDocumentoUsuarioNavigation");
                 });
 
             modelBuilder.Entity("OctavaPrueba.Models.Servicio", b =>

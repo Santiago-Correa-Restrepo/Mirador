@@ -23,7 +23,7 @@ public partial class Abono
 
     public double CantAbono { get; set; }
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public virtual Reserva IdReservaNavigation { get; set; } = null!;
 
