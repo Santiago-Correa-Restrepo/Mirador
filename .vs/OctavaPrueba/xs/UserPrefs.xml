@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{833368BD-87CF-47A0-BF3F-477F306BC36B}|http">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.OctavaPrueba PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="OctavaPrueba/appsettings.json">
+    <Files>
+      <File FileName="OctavaPrueba/appsettings.json" Line="3" Column="75" />
+      <File FileName="OctavaPrueba/Models/Reserva.cs" Line="5" Column="1" />
+      <File FileName="OctavaPrueba/Controllers/ReservasController.cs" />
+      <File FileName="OctavaPrueba/Models/ViewModels/CrearReservaVM.cs" />
+      <File FileName="OctavaPrueba/Models/BdMiradorContext.cs" />
+      <File FileName="OctavaPrueba/Migrations/20241113041321_eliminarusuarioenreservas.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="OctavaPrueba">
+            <Node name="OctavaPrueba" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

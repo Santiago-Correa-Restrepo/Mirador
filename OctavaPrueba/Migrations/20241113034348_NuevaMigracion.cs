@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OctavaPrueba.Migrations
 {
     /// <inheritdoc />
-    public partial class actualizacion : Migration
+    public partial class NuevaMigracion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,7 +59,7 @@ namespace OctavaPrueba.Migrations
                     Nombre = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
                     FechaRegistro = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())"),
                     Valor = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true),
                     Imagen = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
@@ -115,7 +115,7 @@ namespace OctavaPrueba.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NomTipoHabitacion = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: true),
                     NumeroPersonas = table.Column<int>(type: "int", nullable: true),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true)
                 },
                 constraints: table =>
                 {
@@ -170,7 +170,7 @@ namespace OctavaPrueba.Migrations
                     Celular = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
                     Correo = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
                     Contrasena = table.Column<string>(type: "varchar(200)", unicode: false, maxLength: 200, nullable: true),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true),
                     IdRol = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -194,7 +194,7 @@ namespace OctavaPrueba.Migrations
                     Celular = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
                     Correo = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
                     Contrasena = table.Column<string>(type: "varchar(200)", unicode: false, maxLength: 200, nullable: true),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true),
                     IdRol = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -223,7 +223,7 @@ namespace OctavaPrueba.Migrations
                     Descripcion = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
                     FechaRegistro = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())"),
                     Precio = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true)
                 },
                 constraints: table =>
                 {
@@ -245,7 +245,7 @@ namespace OctavaPrueba.Migrations
                     NomServicio = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
                     Precio = table.Column<decimal>(type: "decimal(18,0)", nullable: false),
                     Descripcion = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true)
                 },
                 constraints: table =>
                 {
@@ -359,7 +359,7 @@ namespace OctavaPrueba.Migrations
                     NomPaquete = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
                     Precio = table.Column<decimal>(type: "decimal(18,0)", nullable: false),
                     IdHabitacion = table.Column<int>(type: "int", nullable: false),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true),
                     Descripcion = table.Column<string>(type: "varchar(200)", unicode: false, maxLength: 200, nullable: true)
                 },
                 constraints: table =>
@@ -410,7 +410,7 @@ namespace OctavaPrueba.Migrations
                     SubTotal = table.Column<double>(type: "float", nullable: false),
                     IVA = table.Column<double>(type: "float", nullable: false),
                     CantAbono = table.Column<double>(type: "float", nullable: false),
-                    Estado = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
+                    Estado = table.Column<bool>(type: "bit", nullable: true, defaultValue: true)
                 },
                 constraints: table =>
                 {
@@ -426,16 +426,21 @@ namespace OctavaPrueba.Migrations
                 name: "DetalleReservaServicio",
                 columns: table => new
                 {
-                    IdDetalleReservaServicio = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     IdServicio = table.Column<int>(type: "int", nullable: false),
                     IdReserva = table.Column<int>(type: "int", nullable: false),
+                    IdDetalleReservaServicio = table.Column<int>(type: "int", nullable: false),
                     Cantidad = table.Column<int>(type: "int", nullable: false),
-                    Precio = table.Column<double>(type: "float", nullable: false)
+                    Precio = table.Column<double>(type: "float", nullable: false),
+                    ServicioIdServicio = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__DetalleR__D3D91A5A87D36E77", x => x.IdDetalleReservaServicio);
+                    table.PrimaryKey("PK_DetalleReservaServicio", x => new { x.IdReserva, x.IdServicio });
+                    table.ForeignKey(
+                        name: "FK_DetalleReservaServicio_Servicios_ServicioIdServicio",
+                        column: x => x.ServicioIdServicio,
+                        principalTable: "Servicios",
+                        principalColumn: "IdServicio");
                     table.ForeignKey(
                         name: "FK__DetalleRe__IdRes__114A936A",
                         column: x => x.IdReserva,
@@ -452,16 +457,21 @@ namespace OctavaPrueba.Migrations
                 name: "DetalleReservaPaquete",
                 columns: table => new
                 {
-                    DetalleReservaPaquete = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     IdPaquete = table.Column<int>(type: "int", nullable: false),
                     IdReserva = table.Column<int>(type: "int", nullable: false),
+                    DetalleReservaPaquete = table.Column<int>(type: "int", nullable: false),
                     Cantidad = table.Column<int>(type: "int", nullable: false),
-                    Precio = table.Column<double>(type: "float", nullable: false)
+                    Precio = table.Column<double>(type: "float", nullable: false),
+                    PaqueteIdPaquete = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__DetalleR__2E8BFF25E66B2199", x => x.DetalleReservaPaquete);
+                    table.PrimaryKey("PK_DetalleReservaPaquete", x => new { x.IdReserva, x.IdPaquete });
+                    table.ForeignKey(
+                        name: "FK_DetalleReservaPaquete_Paquetes_PaqueteIdPaquete",
+                        column: x => x.PaqueteIdPaquete,
+                        principalTable: "Paquetes",
+                        principalColumn: "IdPaquete");
                     table.ForeignKey(
                         name: "FK__DetalleRe__IdPaq__14270015",
                         column: x => x.IdPaquete,
@@ -568,19 +578,19 @@ namespace OctavaPrueba.Migrations
                 column: "IdPaquete");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetalleReservaPaquete_IdReserva",
+                name: "IX_DetalleReservaPaquete_PaqueteIdPaquete",
                 table: "DetalleReservaPaquete",
-                column: "IdReserva");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DetalleReservaServicio_IdReserva",
-                table: "DetalleReservaServicio",
-                column: "IdReserva");
+                column: "PaqueteIdPaquete");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetalleReservaServicio_IdServicio",
                 table: "DetalleReservaServicio",
                 column: "IdServicio");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetalleReservaServicio_ServicioIdServicio",
+                table: "DetalleReservaServicio",
+                column: "ServicioIdServicio");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Habitaciones_IdTipoHabitacion",

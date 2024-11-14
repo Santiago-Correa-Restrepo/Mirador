@@ -9,8 +9,6 @@ public partial class Reserva
 
     public string NroDocumentoCliente { get; set; } = null!;
 
-    public int NroDocumentoUsuario { get; set; }
-
     public DateTime FechaReserva { get; set; }
 
     public DateTime FechaInicio { get; set; }
@@ -42,8 +40,6 @@ public partial class Reserva
     public virtual MetodoPago MetodoPagoNavigation { get; set; } 
 
     public virtual Cliente NroDocumentoClienteNavigation { get; set; } = null!;
-
-    public virtual Usuario NroDocumentoUsuarioNavigation { get; set; } = null!;
 
     
 }

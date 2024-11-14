@@ -15,7 +15,7 @@ public partial class Servicio
 
     public string Descripcion { get; set; } = null!;
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public virtual ICollection<DetalleReservaServicio> DetalleReservaServicios { get; set; } = new List<DetalleReservaServicio>();
 

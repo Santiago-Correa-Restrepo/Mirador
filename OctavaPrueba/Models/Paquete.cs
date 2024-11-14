@@ -13,7 +13,7 @@ public partial class Paquete
 
     public int IdHabitacion { get; set; }
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public string Descripcion { get; set; } = null!;
 

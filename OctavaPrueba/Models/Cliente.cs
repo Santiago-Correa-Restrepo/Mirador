@@ -19,7 +19,7 @@ public partial class Cliente
 
     public string Contrasena { get; set; } = null!;
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public int? IdRol { get; set; }
 

@@ -13,7 +13,7 @@ public partial class Mueble
 
     public decimal? Valor { get; set; }
 
-    public bool Estado { get; set; }
+    public bool? Estado { get; set; }
 
     public byte[]? Imagen { get; set; }
 
